@@ -43,3 +43,9 @@
    - when both the email and password is correct as per the database, only then you will be logged in and redirected to home page.
    - In home page User's name will be displayed on the navbar. It is in the form of dropdown menu.
    - Click on this dropdown menu and click on "Logout" option to logout.
+
+<h3>Interesting Highlights of this project</h3>
+
+1. "Proceed" button in login page will only be enabled when you type your mobile number. This is done to prevent unnecessary api requests by the users, if they click         without filling their mobile number.
+2.  The form in which you fill your details as a new user also implements this technique. Only the First Name field is enabled. When the user types his/her first name       only then the Next field will be enabled. Meaning every next field will enable on typing input in the current field. This ensures that the user does not miss any         input field before clicking on the submit/verify button. 
+3.  Lastly the sumbit/Verify button will only be enabled when the OTP will match. This prevents unnecessary api calls with missing or wrong input from users end. Stops users from playing with the website.
