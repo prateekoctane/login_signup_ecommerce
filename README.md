@@ -28,6 +28,18 @@
 <b>1. Login-Signup Page </b>
 <img src="https://github.com/prateekoctane/login_signup_ecommerce/blob/main/login-signup%20page.PNG" alt="home" />
 
+<b>3. User Signup Form </b>
+<img src="https://github.com/prateekoctane/login_signup_ecommerce/blob/main/signup%20form.PNG" alt="home" />
+
+<b>4. Login Form </b>
+<img src="https://github.com/prateekoctane/login_signup_ecommerce/blob/main/login%20form.PNG" alt="home" />
+
+<b>4. User Name on Navbar after Login </b>
+<img src="https://github.com/prateekoctane/login_signup_ecommerce/blob/main/navbar%20after%20user%20log%20in.PNG" alt="home" />
+
+
+
+
 
 <h3>Flow of the Project</h3>
 
