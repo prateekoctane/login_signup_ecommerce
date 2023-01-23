@@ -1,0 +1,100 @@
+@media only screen and (max-width: 600px) {
+   #mainContainer{
+     width: 70%;
+     height: auto;
+   }
+    #img{
+      width: 100%;
+      height: 225px;
+   }
+   #heading{
+      font-size: 25px;
+   }
+   #subHeading{
+    font-size: 12px;
+   }
+   #form1{
+    margin-top: 30px;
+    font-size: 12px;
+   }
+   #form3{
+     margin-top: 30px;
+   }
+   #form2Input{
+    margin: auto;
+    width: 150px;
+}
+}
+@media only screen and (max-width: 550px) {
+    #mainContainer{
+        /* display: initial; */
+        margin: auto;
+        margin-top: 100px;
+      width: 70%;
+      height: auto;
+   
+    }
+
+    #subContainer{
+        display: none;
+    }
+    #subContainer2{
+        width: 100%;
+        
+  
+    }
+    #heading{
+       font-size: 25px;
+    }
+    #subHeading{
+     font-size: 12px;
+    }
+    #form1{
+     margin-top: 30px;
+     font-size: 12px;
+    }
+    #form3{
+      margin-top: 30px;
+    }
+    #form2Input{
+        margin: auto;
+        width: 200px;
+    }
+ }
+
+ @media only screen and (max-width: 400px) {
+    #mainContainer{
+        /* display: initial; */
+        margin: auto;
+        margin-top: 100px;
+      width: 80%;
+      height: auto;
+    
+    }
+
+    #subContainer{
+        display: none;
+    }
+    #subContainer2{
+        width: 100%;
+        
+       
+    }
+    #heading{
+       font-size: 20px;
+    }
+    #subHeading{
+     font-size: 12px;
+    }
+    #form1{
+     margin-top: 30px;
+     font-size: 12px;
+    }
+    #form3{
+      margin-top: 30px;
+    }
+    #form2Input{
+        margin: auto;
+        width: 150px;
+    }
+ }

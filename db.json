@@ -1,0 +1,30 @@
+{
+  "userDetails": [
+    {
+      "id": 1,
+      "firstName": "Darsh",
+      "lastName": "Dhyani",
+      "mobile": "9129273866",
+      "email": "darsh.acrobat@gmail.com",
+      "password": "hello123",
+      "confirmPassword": "hello123",
+      "otp": "4578",
+      "isLoading": false,
+      "isError": false,
+      "isAuth": true
+    },
+    {
+      "firstName": "Prateek",
+      "lastName": "Bhattacharya",
+      "mobile": "7607508374",
+      "email": "prateekoctane@gmail.com",
+      "password": "isha",
+      "confirmPassword": "isha",
+      "otp": "1234",
+      "isLoading": false,
+      "isError": false,
+      "isAuth": false,
+      "id": 2
+    }
+  ]
+}
