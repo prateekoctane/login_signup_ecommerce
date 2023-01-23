@@ -9,6 +9,7 @@
 4. Redux <br />
 5. React-router-dom <br />
 6. Browser LocalStorage </>
+7. Axios
 
 <h3>If you want to run this project on your browser to see how it executes, then follow these steps:</h3>
 
@@ -25,7 +26,7 @@
 <b>1. Home page with navbar</b>
 <img src="https://github.com/prateekoctane/login_signup_ecommerce/blob/main/home%20navbar.PNG" alt="home" />
 
-<b>1. Login-Signup Page </b>
+<b>2. Login-Signup Page </b>
 <img src="https://github.com/prateekoctane/login_signup_ecommerce/blob/main/login-signup%20page.PNG" alt="home" />
 
 <b>3. User Signup Form </b>
