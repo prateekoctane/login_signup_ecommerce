@@ -40,4 +40,6 @@
    - Enter OTP, which i have hard-coded as "1234".
    - Once OTP matches only then the "Verify" button will be Enabled.
 5. Else if, you are an existing user, then it will show you the email & password form
-   - when both the email and password is correct as per the database, only then you will be logged in.
+   - when both the email and password is correct as per the database, only then you will be logged in and redirected to home page.
+   - In home page User's name will be displayed on the navbar. It is in the form of dropdown menu.
+   - Click on this dropdown menu and click on "Logout" option to logout.
