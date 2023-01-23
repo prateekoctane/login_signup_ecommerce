@@ -8,7 +8,7 @@
 3. React-Redux <br />
 4. Redux <br />
 5. React-router-dom <br />
-6. Browser LocalStorage </>
+6. Browser LocalStorage <br />
 7. Axios
 
 <h3>If you want to run this project on your browser to see how it executes, then follow these steps:</h3>
