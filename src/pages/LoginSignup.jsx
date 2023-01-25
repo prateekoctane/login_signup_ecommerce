@@ -15,7 +15,7 @@ import {
   updateUserAuthStatus,
 } from '../Redux/authentication/action'
 // import { userExist } from '../Redux/authentication/reducer'
-import styles from "../styles/Login.module.css";
+import styles from '../styles/Login.module.css'
 
 export const initialState = {
   firstName: '',
@@ -34,7 +34,7 @@ const existingUser = {
   existingEmail: '',
   existingPassword: '',
 }
-let userExist;
+let userExist
 export function LoginSignup() {
   //-------------------------------HOOKS-------------------------------------------------------------
   const [userData, setUserData] = useState(initialState)
@@ -43,11 +43,12 @@ export function LoginSignup() {
   const [color, setColor] = useState('red')
   const [otp] = useState('1234')
   const [visible, setVisible] = useState(false)
-  const btnRef = useRef();
-  const otpRef = useRef();
+  const btnRef = useRef()
+  const loginBtnRef = useRef()
+  const otpRef = useRef()
   const navigate = useNavigate()
-  const [showMatchStatus,setShowMatchStatus] = useState(false);
-  const [matchStatus,setMatchStatus] = useState("passwords dont match");
+  const [showMatchStatus, setShowMatchStatus] = useState(false)
+  const [matchStatus, setMatchStatus] = useState('passwords dont match')
   // const location = useLocation();
 
   // console.log(location)
@@ -65,29 +66,30 @@ export function LoginSignup() {
     // console.log(e.target.name)
 
     if (name === 'existingEmail' || name === 'existingPassword') {
-      setExistingUserData((prev) =>( prev = {...prev,[name]:e.target.value}));
+      setExistingUserData(
+        (prev) => (prev = { ...prev, [name]: e.target.value }),
+      )
       console.log(name)
-    }else{
-
+    } else {
       setUserData((prev) => (prev = { ...prev, [name]: e.target.value }))
       if (e.target.name === 'mobile') {
         btnRef.current.disabled = false
       }
-      if(e.target.name === "confirmPassword"){
-        setShowMatchStatus(true);
-        if(e.target.value === userData.password){
-           otpRef.current.disabled = false;
-           setMatchStatus("passwords match");
-           setColor("green")
-        }else{
-          otpRef.current.disabled = true;
-          setMatchStatus("passwords dont match");
-          setColor("red")
+      if (e.target.name === 'confirmPassword') {
+        setShowMatchStatus(true)
+        if (e.target.value === userData.password) {
+          otpRef.current.disabled = false
+          setMatchStatus('passwords match')
+          setColor('green')
+        } else {
+          otpRef.current.disabled = true
+          setMatchStatus('passwords dont match')
+          setColor('red')
         }
         // console.log(userData,"outside")
       }
       if (e.target.name === 'otp') {
-        setShowMatchStatus(false);
+        setShowMatchStatus(false)
         setVisible(true)
         if (e.target.value === otp) {
           setCheckMsg('OTP Matched')
@@ -96,14 +98,13 @@ export function LoginSignup() {
         } else {
           setCheckMsg('Incorrect OTP')
           setColor('red')
-        }  
+        }
         if (e.target.value.length === 0) {
           // console.log("len is 0", e.target.value)
           setVisible(false)
         }
       }
     }
-
   }
 
   // console.log(showForm1,"1",showForm2,"2",showForm3,"3");
@@ -117,27 +118,27 @@ export function LoginSignup() {
     // console.log("clicking of proceed button");
     if (e.target.innerText === 'Proceed') {
       await dispatch(getUserLoginDetails(userData.mobile))
-      userExist = JSON.parse(localStorage.getItem('currentUser'));
-      
-      
-      console.log(userExist,"current which tried to login")
+      userExist = JSON.parse(localStorage.getItem('currentUser'))
+
+      console.log(userExist, 'current which tried to login')
       if (userExist) {
-        updateUserAuthStatus(userExist.id,{isAuth: true})
-      userExist.isAuth = true; 
-      localStorage.setItem("currentUser",JSON.stringify(userExist));
-        setShowForm3(true);
+        updateUserAuthStatus(userExist.id, { isAuth: true })
+        userExist.isAuth = true
+        localStorage.setItem('currentUser', JSON.stringify(userExist))
+        setShowForm3(true)
         // setShowForm1(prev => !prev);
         setShowForm1(false)
-        setShowForm2(false);
-        console.log("yo")
-      }else{
-        
-        setShowForm3(false);
+        setShowForm2(false)
+        console.log('yo')
+      } else {
+        alert('Default OTP: 1234')
+
+        setShowForm3(false)
         setVisible(false)
-      setShowForm1((prev) => !prev)
-      setShowForm2((prev) => !prev)
+        setShowForm1((prev) => !prev)
+        setShowForm2((prev) => !prev)
       }
-    }else if(e.target.innerText === 'Cancel') {
+    } else if (e.target.innerText === 'Cancel') {
       setUserData(initialState)
     }
     // else{
@@ -147,32 +148,31 @@ export function LoginSignup() {
     //   setShowForm2((prev) => !prev)
     //   setShowForm3(false)
     // }
-
-    
   }
   // console.log(showForm3)
   const addUser = async () => {
-    console.log(userData,"from addUser function in login signup")
-     let res = await dispatch(postNewUserLoginDetails(userData))
-     // login();
-     // currentUser = JSON.parse(localStorage.getItem("currentUser"))
+    console.log(userData, 'from addUser function in login signup')
+    let res = await dispatch(postNewUserLoginDetails(userData))
+    // login();
+    // currentUser = JSON.parse(localStorage.getItem("currentUser"))
     //  let res = await dispatch(getUserLoginDetails(userData.mobile));
     //  localStorage.setItem('currentUser', JSON.stringify(res.))
-    console.log(res,"response from login signup")
+    console.log(res, 'response from login signup')
 
-    
     navigate('/')
   }
   const checkCredentials = () => {
-      // console.log(userExist,"userExit from localt storage");
-      // console.log(existingUserData,"existing user data");
-      userExist = JSON.parse(localStorage.getItem('currentUser'));
-      if(existingUserData.existingEmail === userExist.email && existingUserData.existingPassword === userExist.password){
-        navigate("/")
-      }else{
-
-        alert("email or password is wrong")
-      }
+    // console.log(userExist,"userExit from localt storage");
+    // console.log(existingUserData,"existing user data");
+    userExist = JSON.parse(localStorage.getItem('currentUser'))
+    if (
+      existingUserData.existingEmail === userExist.email &&
+      existingUserData.existingPassword === userExist.password
+    ) {
+      navigate('/')
+    } else {
+      alert('email or password is wrong')
+    }
   }
   //------------------------------------RETURN---------------------------------------------------------
   return (
@@ -187,7 +187,7 @@ export function LoginSignup() {
       marginTop="70px"
       //   bg="pink.100"
     >
-      <Box w="40%" id={ styles.subContainer}  >
+      <Box w="40%" id={styles.subContainer}>
         <Image
           w="100%"
           id={styles.img}
@@ -197,35 +197,49 @@ export function LoginSignup() {
         />
       </Box>
 
-      <Box id={styles.subContainer2} w="60%"  >
+      <Box id={styles.subContainer2} w="60%">
         {/* ---------------------------------------------1st form conditional rendering-------------------------------------------------------------- */}
         {showForm1 && (
           <>
             <Box
-              
               align="left"
-                // border="1px solid blue"
+              // border="1px solid blue"
               margin="auto"
               w="50%"
               mt="20px"
             >
-              <Heading id={styles.heading} >Sign In</Heading>
-              <Text id={styles.subHeading} >Sign in to access your Orders, Offers and Wishlist.</Text>
+              <Heading id={styles.heading}>Sign In</Heading>
+              <Text id={styles.subHeading}>
+                Sign in to access your Orders, Offers and Wishlist.
+              </Text>
             </Box>
-            <FormControl  width="50%" margin="auto" >
-              <FormLabel id={styles.form1} mt="100px" >Mobile Number</FormLabel>
+            <FormControl width="50%" margin="auto">
+              <FormLabel id={styles.form1} mt="100px">
+                Mobile Number
+              </FormLabel>
               <Input
                 border="2px solid gray"
                 type="number"
                 name="mobile"
                 value={userData.mobile}
                 onChange={getInput}
+                // maxLength={}
               />
-
+              {userData.mobile.length > 0 && userData.mobile.length <= 9 && (
+                <Text color="red">10 digits required</Text>
+              )}
+              {userData.mobile.length > 10 && (
+                <Text color="red">10 digits required</Text>
+              )}
+              {userData.mobile.length === 10 && (
+                <Text color="green">Great, now you can proceed</Text>
+              )}
               <Button
                 mt="20px"
-                isDisabled={userData.mobile.length === 0}
-                ref={btnRef}
+                isDisabled={
+                  userData.mobile.length < 10 || userData.mobile.length > 10
+                }
+                // ref={btnRef}
                 onClick={toggleForms}
                 bg="orange"
               >
@@ -238,7 +252,12 @@ export function LoginSignup() {
         {showForm2 && (
           <>
             <Heading>Sign Up</Heading>
-            <FormControl id={styles.form2Input}  width="50%" margin="auto" mt="30px">
+            <FormControl
+              id={styles.form2Input}
+              width="50%"
+              margin="auto"
+              mt="30px"
+            >
               <FormLabel>Start by entering your First Name</FormLabel>
               <Input
                 // w="200px"
@@ -299,24 +318,27 @@ export function LoginSignup() {
                 type="password"
                 value={userData.confirmPassword}
                 onChange={getInput}
-                  // ref={confirmPasswordRef}
+                // ref={confirmPasswordRef}
                 isDisabled={userData.password.length === 0}
               />
-              {showMatchStatus && <Text align="left" fontSize="15px" color={color} >{matchStatus}</Text>}
-              <FormLabel fontWeight="bold" mt="30px" >
-                Provide OTP sent on your mobile number +91{' '}
-                {userData.mobile}
+              {showMatchStatus && (
+                <Text align="left" fontSize="15px" color={color}>
+                  {matchStatus}
+                </Text>
+              )}
+              <FormLabel fontWeight="bold" mt="30px">
+                Provide OTP sent on your mobile number +91 {userData.mobile}
               </FormLabel>
               <Input
                 // w="200px"
                 // className={styles.form2Input}
                 name="otp"
-                placeholder="Enter OTP"
+                placeholder="Enter 1234 as default OTP"
                 border="2px solid gray"
                 type="password"
                 value={userData.otp}
                 onChange={getInput}
-                  ref={otpRef}
+                ref={otpRef}
                 isDisabled
                 // ={userData.confirmPassword.length === 0}
               />
@@ -341,15 +363,17 @@ export function LoginSignup() {
         )}
         {/* ---------------------------------------3rd form---------------------------------------------------------------------------- */}
         {showForm3 && (
-          <FormControl width="50%" margin="auto" >
-            <FormLabel id={styles.form3} mt="100px" >Enter your Details to login</FormLabel>
+          <FormControl width="50%" margin="auto">
+            <FormLabel id={styles.form3} mt="100px">
+              Enter your Details to login
+            </FormLabel>
             <Input
               mt="30px"
               border="2px solid gray"
               type="email"
-              placeholder='Enter Email'
+              placeholder="Enter Email"
               name="existingEmail"
-              value={existingUser.email}
+              value={existingUserData.existingEmail}
               onChange={getInput}
             />
 
@@ -357,16 +381,19 @@ export function LoginSignup() {
               mt="30px"
               border="2px solid gray"
               type="password"
-              placeholder='Enter Password'
+              placeholder="Enter Password"
               name="existingPassword"
-              value={existingUser.password}
+              value={existingUserData.existingPassword}
               onChange={getInput}
             />
 
             <Button
               mt="30px"
-              // isDisabled={userData.mobile.length === 0}
-              // ref={btnRef}
+              isDisabled={
+                existingUserData.existingPassword.length === 0 ||
+                existingUserData.existingEmail.length === 0
+              }
+              // ref={btnRef2}
               onClick={checkCredentials}
               bg="orange"
             >

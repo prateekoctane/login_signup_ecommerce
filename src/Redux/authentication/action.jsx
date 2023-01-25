@@ -49,7 +49,7 @@ const postUserLoginDataFailure = () => {
 export const getUserLoginDetails = (mobile) => (dispatch) => {
       dispatch(getUserLoginDataRequest());
 
-      return axios.get(`https://joi-mart-login-api.onrender.com/userDetails?q=${mobile}`).then((res) => { console.log(res.data[0],"from get request in action"); dispatch(getUserLoginDataSuccess(res.data))} ).catch(
+      return axios.get(`https://joi-mart-login-api.onrender.com/userDetails?mobile=${mobile}`).then((res) => { console.log(res.data[0],"from get request in action"); dispatch(getUserLoginDataSuccess(res.data))} ).catch(
         err => dispatch(getUserLoginDataFailure())
       )
 }
