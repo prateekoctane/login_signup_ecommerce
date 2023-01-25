@@ -2,6 +2,8 @@
 
 <h3>In this mini-project, I have tried to make the Login & Signup functionality for a website, using react-redux and browser's local storage.</h3>
 
+Deployed Link: https://smart-signup-login.netlify.app/
+
 <h3>Tech Stacks Used</h3>
 1. React <br />
 2. Chakra-UI <br />
@@ -20,6 +22,8 @@
 5. the application will run on your browser.
 
 <h3>Glimpse of Project</h3>
+
+Deployed Link: https://smart-signup-login.netlify.app/
 
 <h4>UI is kept to minimal....</h4>
 
